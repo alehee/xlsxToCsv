@@ -9,9 +9,17 @@ using xlsxToCsv.Services;
 
     Aleksander Heese
     06.2023
-*/ 
+*/
 
+
+const string InputPath = "in";
+const string OutputPath = "out";
 
 Console.WriteLine($" xlsxToCsv converter v. {Assembly.GetExecutingAssembly().GetName().Version}");
-if (!ExplorerService.InitializationCheck())
+if (!ExplorerService.InitializationCheck(InputPath, OutputPath))
     return;
+
+Console.WriteLine(" Starting the conversion");
+ConverterService.ConvertFiles(ExplorerService.GetFilesToConvert(InputPath).ToArray(), OutputPath);
+
+Console.WriteLine(" See you soon! :)");
