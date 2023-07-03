@@ -8,7 +8,7 @@ using xlsxToCsv.Services;
     to simple csv file which is easier for fetching
 
     Aleksander Heese
-    06.2023
+    07.2023
 */
 
 
@@ -20,6 +20,6 @@ if (!ExplorerService.InitializationCheck(InputPath, OutputPath))
     return;
 
 Console.WriteLine(" Starting the conversion");
-ConverterService.ConvertFiles(ExplorerService.GetFilesToConvert(InputPath).ToArray(), OutputPath);
+ConverterService.ConvertFiles(ExplorerService.GetFilesToConvert(InputPath).ToArray(), InputPath, OutputPath);
 
 Console.WriteLine(" See you soon! :)");
